@@ -4,6 +4,13 @@ interface IceCream {
   instructions?: string;
 }
 
+interface Sundae extends IceCream {
+  sauce: 'chocolate' | 'caramel' | 'strawberry';
+  nuts?: boolean;
+  whippedCream?: boolean;
+  instructions?: string;
+}
+
 /* let myIceCream: IceCream = {
   flavor: 'vanilla',
   scoops: 2,
@@ -11,7 +18,7 @@ interface IceCream {
 
 // console.log(myIceCream.flavor);
 
-const tooManyScoops = (obj: IceCream): string => {
+/* const tooManyScoops = (obj: IceCream): string => {
   const { flavor, scoops } = obj;
   let result = '';
   if (scoops > 4) return result = 'is too many scoops!';
@@ -25,4 +32,23 @@ const nutella = tooManyScoops(
     scoops: 4,
   }
 );
-console.log(nutella);
+console.log(nutella); */
+
+let myIceCream: Sundae = {
+  flavor: 'vanilla',
+  scoops: 2,
+  sauce: 'chocolate',
+  nuts: true,
+}
+
+const tooManyScoops = (obj: Sundae): string => {
+  const { scoops } = obj;
+  if (scoops > 4) return 'is too many scoops!';
+  return 'Your order will be ready soon!';
+}
+
+console.log(tooManyScoops({
+  flavor: 'vanilla',
+  scoops: 4,
+  sauce: 'chocolate',
+}));
